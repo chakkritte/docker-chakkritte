@@ -1,6 +1,9 @@
 # Pull base image.
 FROM ubuntu:14.04.3
 
+# Set the author
+MAINTAINER Chakkrit Termritthikun <chakkritte57@nu.ac.th>
+
 # Install Nginx.
 RUN \
   apt-get -q -y update && \
