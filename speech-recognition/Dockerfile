@@ -59,7 +59,13 @@ RUN \
 #  wget https://dl.dropboxusercontent.com/u/63724881/audios.zip && \
 #  unzip audios.zip
 
-ADD audio.zip /var/www/html/audio.zip
+RUN cd /var/www/html && \
+  wget https://dl.dropboxusercontent.com/u/63724881/audio.zip
+#  unzip audio.zip
+#  wget https://dl.dropboxusercontent.com/u/63724881/audios.zip && \
+#  unzip audios.zip
+
+#ADD audio.zip /var/www/html/audio.zip
 
 ADD train.py /root/train.py
 
