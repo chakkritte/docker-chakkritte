@@ -63,7 +63,8 @@ RUN \
 #  unzip audios.zip
 
 RUN cd /var/www/html && \
-  wget https://dl.dropboxusercontent.com/u/63724881/audio.zip
+#  wget https://dl.dropboxusercontent.com/u/63724881/audio.zip
+  wget https://dl.dropboxusercontent.com/u/63724881/Face/data4.zip
 #  unzip audio.zip
 #  wget https://dl.dropboxusercontent.com/u/63724881/audios.zip && \
 #  unzip audios.zip
@@ -73,7 +74,7 @@ RUN cd /var/www/html && \
 ADD train.py /root/train.py
 
 RUN cd /var/www/html && \
-  unzip audio.zip && \
+  unzip data4.zip && \
   python /root/train.py
 
 RUN \
