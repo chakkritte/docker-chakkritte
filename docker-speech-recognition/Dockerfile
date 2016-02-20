@@ -38,7 +38,7 @@ RUN cd /root && \
   python-scipy libgsl0-dev
 
 RUN \
-  wget https://sourceforge.net/settings/mirror_choices?projectname=mlpy&filename=mlpy%203.5.0/mlpy-3.5.0.tar.gz && \
+  wget https://dl.dropboxusercontent.com/u/63724881/Face/mlpy-3.5.0.tar.gz && \
   #wget http://sourceforge.net/projects/mlpy/files/mlpy%203.5.0/mlpy-3.5.0.tar.gz && \
   tar xvf mlpy-3.5.0.tar.gz && \
   cd mlpy-3.5.0 && \
