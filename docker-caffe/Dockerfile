@@ -34,7 +34,7 @@ RUN git clone -b ${CLONE_TAG} --depth 1 https://github.com/BVLC/caffe.git . && \
     mkdir build && cd build && \
     cmake -DCPU_ONLY=1 .. && \
     make -j"$(nproc)" && \
-    cd root/caffe && \
+    cd /opt/caffe && \
     pip install -r examples/web_demo/requirements.txt
 
 ENV PYCAFFE_ROOT $CAFFE_ROOT/python
