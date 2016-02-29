@@ -51,4 +51,4 @@ RUN cd /opt/caffe &&\
 # Expose ports.
 EXPOSE 80
 
-CMD python examples/web_demo/app.py -p 80
+CMD python /opt/caffe/examples/web_demo/app.py -p 80
