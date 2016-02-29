@@ -24,8 +24,8 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/v
 WORKDIR /etc/nginx
 
 # Expose ports.
-EXPOSE 80
-EXPOSE 443
+#EXPOSE 80
+#EXPOSE 443
 
 # Boot up Nginx, when container is started
-CMD service start && nginx
+#CMD service start && nginx
