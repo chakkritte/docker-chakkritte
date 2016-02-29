@@ -43,3 +43,12 @@ ENV PATH $CAFFE_ROOT/build/tools:$PYCAFFE_ROOT:$PATH
 RUN echo "$CAFFE_ROOT/build/lib" >> /etc/ld.so.conf.d/caffe.conf && ldconfig
 
 WORKDIR /workspace
+
+RUN cd /opt/caffe &&\
+    ./scripts/download_model_binary.py models/bvlc_reference_caffenet && \
+    ./data/ilsvrc12/get_ilsvrc_aux.sh
+    
+# Expose ports.
+EXPOSE 80
+
+CMD python examples/web_demo/app.py -p 80
