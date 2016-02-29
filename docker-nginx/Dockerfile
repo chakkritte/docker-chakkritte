@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.4:latest
+FROM ubuntu:14.04.4
 MAINTAINER Chakkrit Termritthikun <chakkritte57@nu.ac.th>
 
 # Install Nginx.
