@@ -1,20 +1,23 @@
 # Pull base image.
-FROM chakkritte/docker-nginx
+FROM ubuntu:14.04.4
 
 # Set the author
 MAINTAINER Chakkrit Termritthikun <chakkritte57@nu.ac.th>
 
 # Install Nginx.
 RUN \
-  apt-get -q -y update
+  apt-get -q -y update && \
+  apt-get -q -y install software-properties-common
 
 RUN \
+  apt-get -q -y install pgp wget && \
+  add-apt-repository ppa:nginx/stable && \
   wget -O - http://dl.hhvm.com/conf/hhvm.gpg.key | sudo apt-key add - && \
   echo deb http://dl.hhvm.com/ubuntu trusty main | sudo tee /etc/apt/sources.list.d/hhvm.list
 
 RUN \
   apt-get -q -y update && \
-  apt-get -q -y install hhvm 
+  apt-get -q -y install hhvm nginx 
 
 RUN \
   update-rc.d hhvm defaults && \
@@ -24,6 +27,10 @@ RUN \
 
 RUN cd /var/www/html/ && \
   echo "<?php\n phpinfo();" > /var/www/html/info.php
+  
+RUN \
+  echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
+  chown -R www-data:www-data /var/lib/nginx
 
 ADD default /etc/nginx/sites-available/default
 
