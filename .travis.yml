@@ -19,3 +19,6 @@ script:
   - docker run -d -p 84:80 chakkritte/docker-speech-recognition
   
   - docker ps -a
+  
+notifications:
+  email: false
