@@ -9,7 +9,3 @@ before_install:
   - docker build -t chakkritte/docker-nginx docker-nginx/
   - docker run -d -p 80:80 chakkritte/docker-nginx
   - docker ps -a
-  - docker run chakkritte/docker-nginx
-
-script:
-  - nginx
