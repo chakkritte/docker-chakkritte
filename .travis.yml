@@ -1,12 +1,15 @@
-sudo: required  
-services:  
+sudo: required
+
+language: ruby
+
+services:
   - docker
-install:  
-  - docker login --email=$DOCKER_HUB_EMAIL --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
 
-script:  
-  - docker build -t $DOCKER_IMAGE_NAME .
-  - if [ ! -z "$TRAVIS_TAG" ]; then docker tag $DOCKER_IMAGE_NAME:latest $DOCKER_IMAGE_NAME:$TRAVIS_TAG; fi && docker push $DOCKER_IMAGE_NAME
+before_install:
+  - docker build -t chakkritte/docker-nginx docker-nginx/
+  - docker run -d -p 80:80 chakkritte/docker-nginx
+  - docker ps -a
+  - docker run chakkritte/docker-nginx
 
-env:  
-  - DOCKER_IMAGE_NAME=suda/my-image
+script:
+  - nginx
