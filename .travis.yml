@@ -19,6 +19,3 @@ script:
   - docker run -d -p 80:84 chakkritte/docker-speech-recognition
   
   - docker ps -a
-
-after_success:
-  - coveralls
