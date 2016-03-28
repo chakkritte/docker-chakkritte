@@ -1,0 +1,24 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  cache_directories:
+    - "~/docker"
+  override:
+    - docker info
+    - docker build -t chakkritte/docker-nginx docker-nginx/
+    - docker build -t chakkritte/docker-nginx-hhvm docker-nginx-hhvm/
+    - docker build -t chakkritte/docker-caffe docker-caffe/
+    - docker build -t chakkritte/docker-speech-recognition docker-speech-recognition/
+
+test:
+  override:
+    - docker run -d -p 81:80 chakkritte/docker-nginx ; sleep 10
+    - curl --retry 10 --retry-delay 5 -v http://localhost:81
+    - docker run -d -p 82:80 chakkritte/docker-nginx-hhvm ; sleep 10
+    - curl --retry 10 --retry-delay 5 -v http://localhost:82
+    - docker run -d -p 83:80 chakkritte/docker-caffe ; sleep 10
+    - curl --retry 10 --retry-delay 5 -v http://localhost:83
+    - docker run -d -p 84:80 chakkritte/docker-speech-recognition ; sleep 10
+    - curl --retry 10 --retry-delay 5 -v http://localhost:84
