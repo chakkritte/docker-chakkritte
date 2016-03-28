@@ -6,16 +6,16 @@ services:
   - docker
 
 script:
-  - docker build -t chakkritte/docker-nginx docker-nginx/
+  - docker build -d -t chakkritte/docker-nginx docker-nginx/
   - docker run -d -p 81:80 chakkritte/docker-nginx
   
-  - docker build -t chakkritte/docker-nginx-hhvm docker-nginx-hhvm/
+  - docker build -d -t chakkritte/docker-nginx-hhvm docker-nginx-hhvm/
   - docker run -d -p 82:80 chakkritte/docker-nginx-hhvm
   
-  - docker build -t chakkritte/docker-caffe docker-caffe/
+  - docker build -d -t chakkritte/docker-caffe docker-caffe/
   - docker run -d -p 83:80 chakkritte/docker-caffe
   
-  - docker build -t chakkritte/docker-speech-recognition docker-speech-recognition/
+  - docker build -d -t chakkritte/docker-speech-recognition docker-speech-recognition/
   - docker run -d -p 84:80 chakkritte/docker-speech-recognition
   
   - docker ps -a
