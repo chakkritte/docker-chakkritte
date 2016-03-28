@@ -28,4 +28,4 @@ EXPOSE 80
 EXPOSE 443
 
 # Boot up Nginx, when container is started
-CMD service start && nginx
+CMD nginx
