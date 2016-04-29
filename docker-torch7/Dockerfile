@@ -4,7 +4,7 @@ MAINTAINER Chakkrit Termritthikun <chakkritte57@nu.ac.th>
 
 RUN \
     apt-get -q -y update && \
-    apt-get -q -y install git wget  && \
+    apt-get -q -y install git cmake software-properties-common wget ipython3 libssl-dev libzmq3-dev python-zmq python-pip && \
     apt-get upgrade -q -y && \
     rm -rf /var/lib/apt/lists/*
 
@@ -15,7 +15,7 @@ RUN \
 ADD config/install.sh /root/torch/install.sh
 
 RUN \
-    chmod +x /root/torch/install.sh
+    chmod a+x /root/torch/install.sh
     
 RUN \ 
     cd ~/torch && \
