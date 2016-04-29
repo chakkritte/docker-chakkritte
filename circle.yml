@@ -11,6 +11,7 @@ dependencies:
     - docker build -t chakkritte/docker-nginx-hhvm docker-nginx-hhvm/
     - docker build -t chakkritte/docker-caffe docker-caffe/
     - docker build -t chakkritte/docker-speech-recognition docker-speech-recognition/
+    - docker build -t chakkritte/docker-torch7 docker-torch7/
 
 test:
   override:
