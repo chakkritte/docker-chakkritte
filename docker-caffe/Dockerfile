@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.4
+FROM ubuntu:14.04.5
 MAINTAINER Chakkrit Termritthikun <chakkritte57@nu.ac.th>
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
