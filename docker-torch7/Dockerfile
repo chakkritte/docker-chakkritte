@@ -10,16 +10,13 @@ RUN \
 
 RUN \
     git clone https://github.com/torch/distro.git ~/torch --recursive && \
-    cd ~/torch; bash install-deps;
-
-ADD config/install.sh /root/torch/install.sh
+    bash /root/torch/install-deps
 
 RUN \
     chmod a+x /root/torch/install.sh
     
 RUN \ 
-    cd ~/torch && \
-    ./install.sh
+    /root/torch/./install.sh
     
 RUN \ 
     cd /usr/local/lib && \
